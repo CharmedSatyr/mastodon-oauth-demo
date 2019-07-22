@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  if user != null
+    h2 Hi there, #{user.nickname}!
+    h3 Your profile
+    pre=JSON.stringify(user, null, 2)
+    a(href='/logout') Log out
+  else
+    p Hi there, anonymous!
+    a(href='/login') Log in with #{instance}

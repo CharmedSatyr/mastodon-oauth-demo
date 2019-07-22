@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  if user != null
+    a(href='/user') View your profile
+  else
+    a(href='/login') Log in with #{instance}
