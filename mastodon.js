@@ -1,8 +1,10 @@
+// routes/oauth/mastodon.js
+
 const request = require('request');
 
-const authorize = req => {
+const authorize = (req) => {
   // The authorization code returned from Mastodon on a successful login
-  const code = req.query.code;
+  const { code } = req.query;
   console.log('(1) AUTHORIZATION CODE:', code);
 
   // Token endpoint
@@ -68,7 +70,7 @@ const authorize = req => {
 };
 
 // Right now, just leave `revoke` as a placeholder
-const revoke = req => {
+const revoke = (req) => {
   const opts = {
     client_id: process.env.MASTODON_CLIENT_ID,
     client_secret: process.env.MASTODON_CLIENT_SECRET,
